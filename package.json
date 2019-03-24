@@ -1,0 +1,29 @@
+{
+  "name": "@rowanmanning/require-first",
+  "version": "0.0.0",
+  "description": "Require and return the first available module",
+  "keywords": [
+    "require"
+  ],
+  "author": "Rowan Manning (https://rowanmanning.com/)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rowanmanning/require-first.git"
+  },
+  "homepage": "https://github.com/rowanmanning/require-first",
+  "bugs": "https://github.com/rowanmanning/require-first/issues",
+  "license": "MIT",
+  "engines": {
+    "node": ">=10"
+  },
+  "devDependencies": {
+    "@rowanmanning/eslint-config": "^1.2.0",
+    "@rowanmanning/make": "^1.2.0",
+    "eslint": "^5.15.3",
+    "jest": "^24.5.0"
+  },
+  "main": "./lib/index.js",
+  "scripts": {
+    "test": "make ci"
+  }
+}
