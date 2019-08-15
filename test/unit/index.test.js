@@ -1,16 +1,18 @@
 'use strict';
 
-const index = require('../../index');
-const requireFirst = require('../../lib/require-first');
+const assert = require('proclaim');
 
 describe('index', () => {
+	let index;
+	let requireFirst;
 
-	afterEach(() => {
-		jest.clearAllMocks();
+	beforeEach(() => {
+		index = require('../../index');
+		requireFirst = require('../../lib/require-first');
 	});
 
 	it('aliases `lib/require-first`', () => {
-		expect(index).toStrictEqual(requireFirst);
+		assert.strictEqual(index, requireFirst);
 	});
 
 });

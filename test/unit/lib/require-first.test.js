@@ -1,28 +1,24 @@
 'use strict';
 
+const assert = require('proclaim');
+const mockery = require('mockery');
+
 describe('lib/require-first', () => {
 	let requireFirst;
 
 	beforeEach(() => {
-		jest.resetModules();
 		requireFirst = require('../../../lib/require-first');
-	});
-
-	afterEach(() => {
-		jest.clearAllMocks();
 	});
 
 	describe('requireFirst(modules)', () => {
 		let returnValue;
 
 		beforeEach(() => {
-			jest.mock('module-1', () => 'mock-module-1', {virtual: true});
-			jest.mock('module-2', () => 'mock-module-2', {virtual: true});
-			jest.mock('module-3', () => 'mock-module-3', {virtual: true});
-			jest.mock('module-error', () => {
-				throw new Error('mock-error');
-			}, {virtual: true});
-			jest.mock('module-error-sub', () => require('module-nope'), {virtual: true});
+			mockery.registerSubstitute('module-1', `${__dirname}/../mock/module-1`);
+			mockery.registerSubstitute('module-2', `${__dirname}/../mock/module-2`);
+			mockery.registerSubstitute('module-3', `${__dirname}/../mock/module-3`);
+			mockery.registerSubstitute('module-error', `${__dirname}/../mock/module-error`);
+			mockery.registerSubstitute('module-error-sub', `${__dirname}/../mock/module-error-sub`);
 		});
 
 		describe('when one module is required and it exists', () => {
@@ -32,7 +28,7 @@ describe('lib/require-first', () => {
 			});
 
 			it('returns the module', () => {
-				expect(returnValue).toStrictEqual(require('module-1'));
+				assert.strictEqual(returnValue, require('module-1'));
 			});
 
 		});
@@ -44,7 +40,7 @@ describe('lib/require-first', () => {
 			});
 
 			it('returns the first module', () => {
-				expect(returnValue).toStrictEqual(require('module-1'));
+				assert.strictEqual(returnValue, require('module-1'));
 			});
 
 		});
@@ -56,7 +52,7 @@ describe('lib/require-first', () => {
 			});
 
 			it('returns the first module', () => {
-				expect(returnValue).toStrictEqual(require('module-2'));
+				assert.strictEqual(returnValue, require('module-2'));
 			});
 
 		});
@@ -68,7 +64,7 @@ describe('lib/require-first', () => {
 			});
 
 			it('returns the first module', () => {
-				expect(returnValue).toStrictEqual(require('module-3'));
+				assert.strictEqual(returnValue, require('module-3'));
 			});
 
 		});
@@ -85,9 +81,9 @@ describe('lib/require-first', () => {
 			});
 
 			it('throws an error', () => {
-				expect(error).toBeInstanceOf(Error);
-				expect(error.code).toStrictEqual('MODULE_NOT_FOUND');
-				expect(error.message).toStrictEqual(`Cannot find any of modules 'module-one', 'module-two', 'module-three'`);
+				assert.isInstanceOf(error, Error);
+				assert.strictEqual(error.code, 'MODULE_NOT_FOUND');
+				assert.strictEqual(error.message, `Cannot find any of modules 'module-one', 'module-two', 'module-three'`);
 			});
 
 		});
@@ -104,8 +100,8 @@ describe('lib/require-first', () => {
 			});
 
 			it('throws the error', () => {
-				expect(error).toBeInstanceOf(Error);
-				expect(error.message).toStrictEqual('mock-error');
+				assert.isInstanceOf(error, Error);
+				assert.strictEqual(error.message, 'mock-error');
 			});
 
 		});
@@ -122,7 +118,7 @@ describe('lib/require-first', () => {
 			});
 
 			it('throws the error', () => {
-				expect(error.message).toStrictEqual(`Cannot find module 'module-nope' from 'require-first.test.js'`);
+				assert.strictEqual(error.message, `Cannot find module 'module-nope'`);
 			});
 
 		});
