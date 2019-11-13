@@ -24,7 +24,7 @@
     "mockery": "^2.1.0",
     "proclaim": "^3.6.0"
   },
-  "main": "./lib/index.js",
+  "main": "./index.js",
   "scripts": {
     "test": "make ci"
   }
