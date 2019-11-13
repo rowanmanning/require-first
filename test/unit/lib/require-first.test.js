@@ -118,7 +118,7 @@ describe('lib/require-first', () => {
 			});
 
 			it('throws the error', () => {
-				assert.strictEqual(error.message, `Cannot find module 'module-nope'`);
+				assert.match(error.message, /^cannot find module 'module-nope'/i);
 			});
 
 		});
