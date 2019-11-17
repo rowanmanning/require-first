@@ -5,21 +5,18 @@ const mockery = require('mockery');
 
 describe('lib/require-first', () => {
 	let requireFirst;
+	let returnValue;
 
 	beforeEach(() => {
+		mockery.registerSubstitute('module-1', `${__dirname}/../mock/module-1`);
+		mockery.registerSubstitute('module-2', `${__dirname}/../mock/module-2`);
+		mockery.registerSubstitute('module-3', `${__dirname}/../mock/module-3`);
+		mockery.registerSubstitute('module-error', `${__dirname}/../mock/module-error`);
+		mockery.registerSubstitute('module-error-sub', `${__dirname}/../mock/module-error-sub`);
 		requireFirst = require('../../../lib/require-first');
 	});
 
 	describe('requireFirst(modules)', () => {
-		let returnValue;
-
-		beforeEach(() => {
-			mockery.registerSubstitute('module-1', `${__dirname}/../mock/module-1`);
-			mockery.registerSubstitute('module-2', `${__dirname}/../mock/module-2`);
-			mockery.registerSubstitute('module-3', `${__dirname}/../mock/module-3`);
-			mockery.registerSubstitute('module-error', `${__dirname}/../mock/module-error`);
-			mockery.registerSubstitute('module-error-sub', `${__dirname}/../mock/module-error-sub`);
-		});
 
 		describe('when one module is required and it exists', () => {
 
@@ -51,7 +48,7 @@ describe('lib/require-first', () => {
 				returnValue = requireFirst(['module-one', 'module-2', 'module-3']);
 			});
 
-			it('returns the first module', () => {
+			it('returns the second module', () => {
 				assert.strictEqual(returnValue, require('module-2'));
 			});
 
@@ -63,7 +60,7 @@ describe('lib/require-first', () => {
 				returnValue = requireFirst(['module-one', 'module-two', 'module-3']);
 			});
 
-			it('returns the first module', () => {
+			it('returns the third module', () => {
 				assert.strictEqual(returnValue, require('module-3'));
 			});
 
@@ -119,6 +116,22 @@ describe('lib/require-first', () => {
 
 			it('throws the error', () => {
 				assert.match(error.message, /^cannot find module 'module-nope'/i);
+			});
+
+		});
+
+	});
+
+	describe('requireFirst(modules, defaultReturnValue)', () => {
+
+		describe('when multiple modules are required but none exist', () => {
+
+			beforeEach(() => {
+				returnValue = requireFirst(['module-one', 'module-two', 'module-three'], 'mock-default-return-value');
+			});
+
+			it('returns `defaultReturnValue`', () => {
+				assert.strictEqual(returnValue, 'mock-default-return-value');
 			});
 
 		});

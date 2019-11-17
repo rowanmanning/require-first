@@ -39,6 +39,14 @@ Require modules by passing in an array of paths. The first one that successfully
 const thing = requireFirst(['thing1', './thing2', '~/../example/thing3']);
 ```
 
+By default, an error will be thrown if none of the modules are found. You can change this behaviour to return a default value specified by you:
+
+```js
+const thing = requireFirst(['thing1', './thing2', '~/../example/thing3'], {
+  example: true
+});
+```
+
 
 ## Contributing
 
