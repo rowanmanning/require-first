@@ -1,18 +1,18 @@
 'use strict';
 
-const assert = require('proclaim');
-const mockery = require('mockery');
+const {assert} = require('chai');
+const td = require('testdouble');
 
 describe('lib/require-first', () => {
 	let requireFirst;
 	let returnValue;
 
 	beforeEach(() => {
-		mockery.registerSubstitute('module-1', `${__dirname}/../mock/module-1`);
-		mockery.registerSubstitute('module-2', `${__dirname}/../mock/module-2`);
-		mockery.registerSubstitute('module-3', `${__dirname}/../mock/module-3`);
-		mockery.registerSubstitute('module-error', `${__dirname}/../mock/module-error`);
-		mockery.registerSubstitute('module-error-sub', `${__dirname}/../mock/module-error-sub`);
+		td.replace('module-1', 'mock-module-1');
+		td.replace('module-2', 'mock-module-2');
+		td.replace('module-3', 'mock-module-3');
+		// Mockery.registerSubstitute('module-error', `${__dirname}/../mock/module-error`);
+		// mockery.registerSubstitute('module-error-sub', `${__dirname}/../mock/module-error-sub`);
 		requireFirst = require('../../../lib/require-first');
 	});
 
@@ -25,7 +25,7 @@ describe('lib/require-first', () => {
 			});
 
 			it('returns the module', () => {
-				assert.strictEqual(returnValue, require('module-1'));
+				assert.strictEqual(returnValue, 'mock-module-1');
 			});
 
 		});
@@ -37,7 +37,7 @@ describe('lib/require-first', () => {
 			});
 
 			it('returns the first module', () => {
-				assert.strictEqual(returnValue, require('module-1'));
+				assert.strictEqual(returnValue, 'mock-module-1');
 			});
 
 		});
@@ -49,7 +49,7 @@ describe('lib/require-first', () => {
 			});
 
 			it('returns the second module', () => {
-				assert.strictEqual(returnValue, require('module-2'));
+				assert.strictEqual(returnValue, 'mock-module-2');
 			});
 
 		});
@@ -61,7 +61,7 @@ describe('lib/require-first', () => {
 			});
 
 			it('returns the third module', () => {
-				assert.strictEqual(returnValue, require('module-3'));
+				assert.strictEqual(returnValue, 'mock-module-3');
 			});
 
 		});
@@ -78,7 +78,7 @@ describe('lib/require-first', () => {
 			});
 
 			it('throws an error', () => {
-				assert.isInstanceOf(error, Error);
+				assert.instanceOf(error, Error);
 				assert.strictEqual(error.code, 'MODULE_NOT_FOUND');
 				assert.strictEqual(error.message, `Cannot find any of modules 'module-one', 'module-two', 'module-three'`);
 			});
@@ -90,14 +90,14 @@ describe('lib/require-first', () => {
 
 			beforeEach(() => {
 				try {
-					requireFirst(['module-error']);
+					requireFirst([`${__dirname}/../mock/module-error`, 'module-1']);
 				} catch (caughtError) {
 					error = caughtError;
 				}
 			});
 
 			it('throws the error', () => {
-				assert.isInstanceOf(error, Error);
+				assert.instanceOf(error, Error);
 				assert.strictEqual(error.message, 'mock-error');
 			});
 
@@ -108,7 +108,7 @@ describe('lib/require-first', () => {
 
 			beforeEach(() => {
 				try {
-					requireFirst(['module-error-sub']);
+					requireFirst([`${__dirname}/../mock/module-error-sub`, 'module-1']);
 				} catch (caughtError) {
 					error = caughtError;
 				}

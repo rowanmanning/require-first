@@ -1,16 +1,11 @@
 'use strict';
 
-const mockery = require('mockery');
+const td = require('testdouble');
 
-beforeEach(() => {
-	mockery.enable({
-		useCleanCache: true,
-		warnOnUnregistered: false,
-		warnOnReplace: false
-	});
+td.config({
+	ignoreWarnings: true
 });
 
 afterEach(() => {
-	mockery.deregisterAll();
-	mockery.disable();
+	td.reset();
 });
