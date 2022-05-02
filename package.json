@@ -14,7 +14,7 @@
   "bugs": "https://github.com/rowanmanning/require-first/issues",
   "license": "MIT",
   "engines": {
-    "node": ">=10",
+    "node": ">=14",
     "npm": ">=7"
   },
   "scripts": {
