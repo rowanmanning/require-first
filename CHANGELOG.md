@@ -1,5 +1,21 @@
 # Changelog
 
+## [2.1.0](https://github.com/rowanmanning/require-first/compare/v2.0.1...v2.1.0) (2022-06-11)
+
+
+### Features
+
+* ensure typescript types are always valid ([2a4d163](https://github.com/rowanmanning/require-first/commit/2a4d1634f4f61f9027a95e293f1d1a24da67b457))
+
+
+### Miscellaneous
+
+* bump @commitlint/cli from 17.0.1 to 17.0.2 ([7c52bc1](https://github.com/rowanmanning/require-first/commit/7c52bc124951974b46fd237835c711ce9dcbbf46))
+* bump @commitlint/config-conventional from 17.0.0 to 17.0.2 ([78e220f](https://github.com/rowanmanning/require-first/commit/78e220ff6fc18c0027cdfbe3ea63681b20e96efa))
+* bump @rowanmanning/eslint-config from 3.5.0 to 4.0.2 ([1df62b5](https://github.com/rowanmanning/require-first/commit/1df62b52570321242de279d1a283e76d0fcdb5ab))
+* bump eslint from 8.16.0 to 8.17.0 ([9727639](https://github.com/rowanmanning/require-first/commit/972763962f5a1fa611bf05537ee56b663988fab6))
+* fix eslint issues ([3a697d0](https://github.com/rowanmanning/require-first/commit/3a697d034e79315dbdab324e46cf39790638c248))
+
 ### [2.0.1](https://github.com/rowanmanning/require-first/compare/v2.0.0...v2.0.1) (2022-05-26)
 
 
