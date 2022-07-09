@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.1](https://github.com/rowanmanning/require-first/compare/v2.1.0...v2.1.1) (2022-07-09)
+
+
+### Bug Fixes
+
+* hide the misc changelog section ([71c3210](https://github.com/rowanmanning/require-first/commit/71c3210a328eb79058c0cec25f99cee43f38924e))
+
 ## [2.1.0](https://github.com/rowanmanning/require-first/compare/v2.0.1...v2.1.0) (2022-06-11)
 
 
