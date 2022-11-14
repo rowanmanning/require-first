@@ -138,4 +138,10 @@ describe('lib/require-first', () => {
 
 	});
 
+	describe('.default', () => {
+		it('aliases the module exports', () => {
+			assert.strictEqual(requireFirst, requireFirst.default);
+		});
+	});
+
 });
