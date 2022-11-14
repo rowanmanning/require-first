@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.2](https://github.com/rowanmanning/require-first/compare/v2.1.1...v2.1.2) (2022-11-14)
+
+
+### Bug Fixes
+
+* improve TypeScript compatibility ([a9931d9](https://github.com/rowanmanning/require-first/commit/a9931d9b107645c36b2c4ec645987cb57e3b4292))
+
 ## [2.1.1](https://github.com/rowanmanning/require-first/compare/v2.1.0...v2.1.1) (2022-07-09)
 
 
