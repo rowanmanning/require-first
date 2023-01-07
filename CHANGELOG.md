@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.3](https://github.com/rowanmanning/require-first/compare/v2.1.2...v2.1.3) (2023-01-07)
+
+
+### Bug Fixes
+
+* bump json5 from 2.2.1 to 2.2.3 ([6d64ca8](https://github.com/rowanmanning/require-first/commit/6d64ca8d1d60950a0666894698ab7e42706b4d0d))
+
 ## [2.1.2](https://github.com/rowanmanning/require-first/compare/v2.1.1...v2.1.2) (2022-11-14)
 
 
