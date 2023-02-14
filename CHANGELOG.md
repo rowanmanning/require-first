@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.4](https://github.com/rowanmanning/require-first/compare/v2.1.3...v2.1.4) (2023-02-14)
+
+
+### Bug Fixes
+
+* support npm v9 ([db5721a](https://github.com/rowanmanning/require-first/commit/db5721a63e8329e637704598f63200d0dbe27d5b))
+
 ## [2.1.3](https://github.com/rowanmanning/require-first/compare/v2.1.2...v2.1.3) (2023-01-07)
 
 
