@@ -1,5 +1,18 @@
 # Changelog
 
+## [3.0.0](https://github.com/rowanmanning/require-first/compare/v2.1.4...v3.0.0) (2023-03-25)
+
+
+### ⚠ BREAKING CHANGES
+
+* drop official support for npm v7
+* drop support for Node.js 14
+
+### Miscellaneous
+
+* drop official support for npm v7 ([33c7cdc](https://github.com/rowanmanning/require-first/commit/33c7cdc570633a7bc8089a327cb8c24fda112072))
+* drop support for Node.js 14 ([7342d74](https://github.com/rowanmanning/require-first/commit/7342d74b82316e76d990cd58faabf85a2fc0f09d))
+
 ## [2.1.4](https://github.com/rowanmanning/require-first/compare/v2.1.3...v2.1.4) (2023-02-14)
 
 
