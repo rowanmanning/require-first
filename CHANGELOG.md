@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.0.1](https://github.com/rowanmanning/require-first/compare/v3.0.0...v3.0.1) (2023-04-18)
+
+
+### Bug Fixes
+
+* add support for Node.js 20 ([e5bdbab](https://github.com/rowanmanning/require-first/commit/e5bdbab4d09192996117c38b793b33e7e6058561))
+
 ## [3.0.0](https://github.com/rowanmanning/require-first/compare/v2.1.4...v3.0.0) (2023-03-25)
 
 
