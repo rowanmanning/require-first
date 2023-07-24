@@ -1,6 +1,6 @@
 'use strict';
 
-const {assert} = require('chai');
+const assert = require('node:assert');
 const td = require('testdouble');
 
 describe('lib/require-first', () => {
@@ -78,7 +78,7 @@ describe('lib/require-first', () => {
 			});
 
 			it('throws an error', () => {
-				assert.instanceOf(error, Error);
+				assert.ok(error instanceof Error);
 				assert.strictEqual(error.code, 'MODULE_NOT_FOUND');
 				assert.strictEqual(error.message, `Cannot find any of modules 'module-one', 'module-two', 'module-three'`);
 			});
@@ -97,7 +97,7 @@ describe('lib/require-first', () => {
 			});
 
 			it('throws the error', () => {
-				assert.instanceOf(error, Error);
+				assert.ok(error instanceof Error);
 				assert.strictEqual(error.message, 'mock-error');
 			});
 
@@ -115,7 +115,7 @@ describe('lib/require-first', () => {
 			});
 
 			it('throws the error', () => {
-				assert.match(error.message, /^cannot find module 'module-nope'/i);
+				assert.ok(/^cannot find module 'module-nope'/i.test(error.message));
 			});
 
 		});
