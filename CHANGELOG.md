@@ -1,5 +1,37 @@
 # Changelog
 
+## 3.0.2 (2023-07-25)
+
+
+### ⚠ BREAKING CHANGES
+
+* drop official support for npm v7
+* drop support for Node.js 14
+* drop support for Node.js versions below 14
+* mocha no longer supports Node.js v12
+
+### Features
+
+* ensure typescript types are always valid ([2a4d163](https://github.com/rowanmanning/require-first/commit/2a4d1634f4f61f9027a95e293f1d1a24da67b457))
+
+
+### Bug Fixes
+
+* add support for Node.js 20 ([e5bdbab](https://github.com/rowanmanning/require-first/commit/e5bdbab4d09192996117c38b793b33e7e6058561))
+* bump json5 from 2.2.1 to 2.2.3 ([6d64ca8](https://github.com/rowanmanning/require-first/commit/6d64ca8d1d60950a0666894698ab7e42706b4d0d))
+* hide the misc changelog section ([71c3210](https://github.com/rowanmanning/require-first/commit/71c3210a328eb79058c0cec25f99cee43f38924e))
+* improve TypeScript compatibility ([a9931d9](https://github.com/rowanmanning/require-first/commit/a9931d9b107645c36b2c4ec645987cb57e3b4292))
+* sort out broken releases ([26b2483](https://github.com/rowanmanning/require-first/commit/26b2483df21241488cfe00dfb4d1b6fb4b5986b7))
+* support npm v9 ([db5721a](https://github.com/rowanmanning/require-first/commit/db5721a63e8329e637704598f63200d0dbe27d5b))
+
+
+### Miscellaneous
+
+* bump mocha from 9.2.2 to 10.0.0 ([4cbdc29](https://github.com/rowanmanning/require-first/commit/4cbdc294d1d0b1073cc5b00062b889d286b5fc01))
+* drop official support for npm v7 ([33c7cdc](https://github.com/rowanmanning/require-first/commit/33c7cdc570633a7bc8089a327cb8c24fda112072))
+* drop support for Node.js 14 ([7342d74](https://github.com/rowanmanning/require-first/commit/7342d74b82316e76d990cd58faabf85a2fc0f09d))
+* drop support for Node.js versions below 14 ([2ed2d4f](https://github.com/rowanmanning/require-first/commit/2ed2d4f28d2a6685f56937950f5de20b0359f4c4))
+
 ## [3.0.1](https://github.com/rowanmanning/require-first/compare/v3.0.0...v3.0.1) (2023-04-18)
 
 
