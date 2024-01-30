@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.1.0](https://github.com/rowanmanning/require-first/compare/v4.0.0...v4.1.0) (2024-01-30)
+
+
+### Features
+
+* add official support for npm 10 ([08d0260](https://github.com/rowanmanning/require-first/commit/08d0260e8b0110ab6f8012a7371a94e8e6f86b18))
+
 ## [4.0.0](https://github.com/rowanmanning/require-first/compare/v3.0.2...v4.0.0) (2023-09-11)
 
 
