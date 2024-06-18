@@ -17,9 +17,7 @@ describe('lib/require-first', () => {
 	});
 
 	describe('requireFirst(modules)', () => {
-
 		describe('when one module is required and it exists', () => {
-
 			beforeEach(() => {
 				returnValue = requireFirst(['module-1']);
 			});
@@ -27,11 +25,9 @@ describe('lib/require-first', () => {
 			it('returns the module', () => {
 				assert.strictEqual(returnValue, 'mock-module-1');
 			});
-
 		});
 
 		describe('when multiple modules are required and the first exists', () => {
-
 			beforeEach(() => {
 				returnValue = requireFirst(['module-1', 'module-2', 'module-3']);
 			});
@@ -39,11 +35,9 @@ describe('lib/require-first', () => {
 			it('returns the first module', () => {
 				assert.strictEqual(returnValue, 'mock-module-1');
 			});
-
 		});
 
 		describe('when multiple modules are required and the first does not exist, but the second does', () => {
-
 			beforeEach(() => {
 				returnValue = requireFirst(['module-one', 'module-2', 'module-3']);
 			});
@@ -51,11 +45,9 @@ describe('lib/require-first', () => {
 			it('returns the second module', () => {
 				assert.strictEqual(returnValue, 'mock-module-2');
 			});
-
 		});
 
 		describe('when multiple modules are required and the first and second do not exist, but the third does', () => {
-
 			beforeEach(() => {
 				returnValue = requireFirst(['module-one', 'module-two', 'module-3']);
 			});
@@ -63,7 +55,6 @@ describe('lib/require-first', () => {
 			it('returns the third module', () => {
 				assert.strictEqual(returnValue, 'mock-module-3');
 			});
-
 		});
 
 		describe('when multiple modules are required but none exist', () => {
@@ -80,9 +71,11 @@ describe('lib/require-first', () => {
 			it('throws an error', () => {
 				assert.ok(error instanceof Error);
 				assert.strictEqual(error.code, 'MODULE_NOT_FOUND');
-				assert.strictEqual(error.message, `Cannot find any of modules 'module-one', 'module-two', 'module-three'`);
+				assert.strictEqual(
+					error.message,
+					`Cannot find any of modules 'module-one', 'module-two', 'module-three'`
+				);
 			});
-
 		});
 
 		describe('when a module is found but it throws an error', () => {
@@ -100,7 +93,6 @@ describe('lib/require-first', () => {
 				assert.ok(error instanceof Error);
 				assert.strictEqual(error.message, 'mock-error');
 			});
-
 		});
 
 		describe('when a module is found but one of its sub-dependencies is not', () => {
@@ -117,25 +109,22 @@ describe('lib/require-first', () => {
 			it('throws the error', () => {
 				assert.ok(/^cannot find module 'module-nope'/i.test(error.message));
 			});
-
 		});
-
 	});
 
 	describe('requireFirst(modules, defaultReturnValue)', () => {
-
 		describe('when multiple modules are required but none exist', () => {
-
 			beforeEach(() => {
-				returnValue = requireFirst(['module-one', 'module-two', 'module-three'], 'mock-default-return-value');
+				returnValue = requireFirst(
+					['module-one', 'module-two', 'module-three'],
+					'mock-default-return-value'
+				);
 			});
 
 			it('returns `defaultReturnValue`', () => {
 				assert.strictEqual(returnValue, 'mock-default-return-value');
 			});
-
 		});
-
 	});
 
 	describe('.default', () => {
@@ -143,5 +132,4 @@ describe('lib/require-first', () => {
 			assert.strictEqual(requireFirst, requireFirst.default);
 		});
 	});
-
 });
