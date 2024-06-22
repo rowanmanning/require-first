@@ -1,7 +1,10 @@
 'use strict';
 
+const { afterEach, beforeEach, describe, it } = require('node:test');
 const assert = require('node:assert');
 const td = require('testdouble');
+
+td.config({ ignoreWarnings: true });
 
 describe('lib/require-first', () => {
 	let requireFirst;
@@ -11,10 +14,10 @@ describe('lib/require-first', () => {
 		td.replace('module-1', 'mock-module-1');
 		td.replace('module-2', 'mock-module-2');
 		td.replace('module-3', 'mock-module-3');
-		// Mockery.registerSubstitute('module-error', `${__dirname}/../mock/module-error`);
-		// mockery.registerSubstitute('module-error-sub', `${__dirname}/../mock/module-error-sub`);
 		requireFirst = require('../../../lib/require-first');
 	});
+
+	afterEach(() => td.reset());
 
 	describe('requireFirst(modules)', () => {
 		describe('when one module is required and it exists', () => {
