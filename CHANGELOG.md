@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.2.0](https://github.com/rowanmanning/require-first/compare/v4.1.0...v4.2.0) (2024-06-23)
+
+
+### Features
+
+* add Node.js 22 support ([9c5fb51](https://github.com/rowanmanning/require-first/commit/9c5fb51faec2fc65531c2f3646765c3345d97f33))
+
 ## [4.1.0](https://github.com/rowanmanning/require-first/compare/v4.0.0...v4.1.0) (2024-01-30)
 
 
