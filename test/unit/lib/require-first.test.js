@@ -110,6 +110,7 @@ describe('lib/require-first', () => {
 			});
 
 			it('throws the error', () => {
+				// biome-ignore lint/performance/useTopLevelRegex: for testing
 				assert.ok(/^cannot find module 'module-nope'/i.test(error.message));
 			});
 		});
