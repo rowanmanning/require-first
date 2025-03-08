@@ -36,7 +36,7 @@
     "testdouble": "^3.16.4",
     "typescript": "^5.5.2"
   },
-  "main": "lib/require-first.js",
+  "main": "index.js",
   "nyc": {
     "eager": true,
     "reporter": [

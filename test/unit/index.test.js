@@ -6,7 +6,7 @@ const td = require('testdouble');
 
 td.config({ ignoreWarnings: true });
 
-describe('lib/require-first', () => {
+describe('require-first', () => {
 	let requireFirst;
 	let returnValue;
 
@@ -14,7 +14,7 @@ describe('lib/require-first', () => {
 		td.replace('module-1', 'mock-module-1');
 		td.replace('module-2', 'mock-module-2');
 		td.replace('module-3', 'mock-module-3');
-		requireFirst = require('../../../lib/require-first');
+		requireFirst = require('../..');
 	});
 
 	afterEach(() => td.reset());
@@ -86,7 +86,7 @@ describe('lib/require-first', () => {
 
 			beforeEach(() => {
 				try {
-					requireFirst([`${__dirname}/../mock/module-error`, 'module-1']);
+					requireFirst([`${__dirname}/mock/module-error`, 'module-1']);
 				} catch (caughtError) {
 					error = caughtError;
 				}
@@ -103,7 +103,7 @@ describe('lib/require-first', () => {
 
 			beforeEach(() => {
 				try {
-					requireFirst([`${__dirname}/../mock/module-error-sub`, 'module-1']);
+					requireFirst([`${__dirname}/mock/module-error-sub`, 'module-1']);
 				} catch (caughtError) {
 					error = caughtError;
 				}
