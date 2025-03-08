@@ -14,7 +14,7 @@ describe('require-first', () => {
 		td.replace('module-1', 'mock-module-1');
 		td.replace('module-2', 'mock-module-2');
 		td.replace('module-3', 'mock-module-3');
-		requireFirst = require('../..');
+		requireFirst = require('../..').requireFirst;
 	});
 
 	afterEach(() => td.reset());
@@ -128,12 +128,6 @@ describe('require-first', () => {
 			it('returns `defaultReturnValue`', () => {
 				assert.strictEqual(returnValue, 'mock-default-return-value');
 			});
-		});
-	});
-
-	describe('.default', () => {
-		it('aliases the module exports', () => {
-			assert.strictEqual(requireFirst, requireFirst.default);
 		});
 	});
 });

@@ -28,7 +28,7 @@ npm install @rowanmanning/require-first
 Load the library into your code with a `require` call:
 
 ```js
-const requireFirst = require('@rowanmanning/require-first');
+const { requireFirst } = require('@rowanmanning/require-first');
 ```
 
 Require modules by passing in an array of paths. The first one that successfully resolves will be returned.

@@ -15,7 +15,7 @@ const missingModuleErrorRegExp = /^cannot find module '([^']+)'/i;
  * @throws {Error}
  *     Throws if none of the modules can be loaded and `defaultReturnValue` is not defined.
  */
-function requireFirst(modules, defaultReturnValue) {
+exports.requireFirst = function requireFirst(modules, defaultReturnValue) {
 	for (const [index, module] of Object.entries(modules)) {
 		try {
 			return require(module);
@@ -35,7 +35,7 @@ function requireFirst(modules, defaultReturnValue) {
 			}
 		}
 	}
-}
+};
 
 /**
  * Create a module error.
@@ -53,7 +53,3 @@ function createModuleError(modules) {
 	moduleError.code = 'MODULE_NOT_FOUND';
 	return moduleError;
 }
-
-/** @type {requireFirst} */
-module.exports = requireFirst;
-module.exports.default = module.exports;
