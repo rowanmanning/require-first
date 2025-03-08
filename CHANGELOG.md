@@ -1,5 +1,22 @@
 # Changelog
 
+## [5.0.0](https://github.com/rowanmanning/require-first/compare/v4.2.1...v5.0.0) (2025-03-08)
+
+
+### ⚠ BREAKING CHANGES
+
+* move to named exports
+* drop Node.js 18
+
+### Miscellaneous Chores
+
+* drop Node.js 18 ([1be6a66](https://github.com/rowanmanning/require-first/commit/1be6a661fc596065d18cf130384b384a7fa73023))
+
+
+### Code Refactoring
+
+* move to named exports ([9049242](https://github.com/rowanmanning/require-first/commit/90492425e18f4e1c42f733d71ca9ebd2658080f9))
+
 ## [4.2.1](https://github.com/rowanmanning/require-first/compare/v4.2.0...v4.2.1) (2024-07-27)
 
 
