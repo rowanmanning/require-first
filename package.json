@@ -1,6 +1,6 @@
 {
   "name": "@rowanmanning/require-first",
-  "version": "5.0.0",
+  "version": "5.1.0",
   "description": "Require and return the first available module",
   "keywords": [
     "require"
